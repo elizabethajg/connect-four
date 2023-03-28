@@ -1,13 +1,13 @@
 const ObjectId = require('mongodb').ObjectId;
 
-class GameLogic {
+class Play {
   constructor(gameId, db) {
     this.gameId = gameId;
     this.board = Array.from({ length: 6 }, () => Array(7).fill(null));
     this.gameOver = false;
     this.winner = null;
     this.db = db;
-    this.currentPlayer = 'Red';
+    this.currentPlayer = 'red';
   }
 
   async save() {
@@ -34,7 +34,7 @@ class GameLogic {
       this.gameOver = true;
       this.winner = this.currentPlayer;
     } else {
-      this.currentPlayer = this.currentPlayer === 'Red' ? 'Yellow' : 'Red';
+      this.currentPlayer = this.currentPlayer === 'red' ? 'yellow' : 'red';
     }
 
     await this.save();
@@ -96,5 +96,5 @@ class GameLogic {
       return count >= 4;
     }
   }
-
-  module.exports = GameLogic;
+  
+  module.exports = Play;
