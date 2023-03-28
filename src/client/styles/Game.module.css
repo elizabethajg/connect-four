@@ -5,40 +5,69 @@ div .drop{
     justify-content: space-around;
     text-align: center;
     margin: 10px 0 0 33px;
-}
-
-.drop > button {
+  }
+  
+  .drop > button {
     background-color: transparent;
     font-size: 22px;
     font-weight: bold;
     border-radius: 20%;
-}
-
-.drop > button:hover {
+  }
+  
+  .drop > button:hover {
     background-color: black;
     color: white;
     border: white;
     cursor: pointer;
     transition: background-color 0.3s;
     box-shadow: 10px 6px 4px rgba(0, 0, 0, 0.25);
-}
-
-.playerInfo{
+  }
+  
+  .playerInfo{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 150px;
-  margin: 50px 100px;
-  height: 100px;
-  border: 1px solid black;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 120px;
+  border: none;
   border-radius: 5px;
-  padding: 15px;
-}
-
-.playerInfo > span {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-
-}
+  padding: 5px;
+  text-align: center;
+  }
+  
+  .playerInfo > p {
+    margin: 0;
+  }
+  
+  .playerInfo > span {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+  
+  .message {
+    size: 44px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 350px;
+  
+  }
+  
+  .col {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gameMode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }

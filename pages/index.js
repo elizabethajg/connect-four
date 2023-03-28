@@ -1,7 +1,7 @@
 import React from 'react';
 import Game from 'src/client/components/Game.js';
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <div>
       <h1>Connect Four</h1>
@@ -9,5 +9,3 @@ const HomePage = () => {
     </div>
   );
 };
-
-export default HomePage;
