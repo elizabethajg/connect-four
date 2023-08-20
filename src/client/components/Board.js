@@ -3,6 +3,8 @@ import Piece from './Piece';
 import styles from '../styles/Board.module.css';
 
 class Board extends React.Component {
+
+  // Method that creates the board by iterating through each row and column
   createBoard() {
     const rows = [];
     for (let r = 0; r < 6; r++) {
@@ -15,9 +17,12 @@ class Board extends React.Component {
     return rows;
   }
 
+  // Render method that returns a div element with the Board module CSS styles and calls the createBoard method to render the board
   render() {
     return <div className={styles.board}>{this.createBoard()}</div>;
   }
 }
 
 export default Board;
+
+

@@ -7,6 +7,7 @@ const createInitialBoard = () => {
   return Array.from({ length: 6 }, () => Array(7).fill(null));
 };
 
+//Used for determining random move by AI in singleplayer
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * max);
 };
@@ -79,6 +80,7 @@ const Game = () => {
     setMessage("Make your first move.");
   };
 
+  //BROKEN, testing for single player
   const makeMove = (col, player) => {
     for (let row = 5; row >= 0; row--) {
       if (!board[row][col]) {
@@ -97,6 +99,9 @@ const Game = () => {
     return false;
   };
 
+  //Handles the piece placement logic and execution
+  //In singleplayer, implements AI logic to handle computer's turn
+  //In multiplayer, calls server to handle move and switch current player
   const handleColumnClick = (col) => {
     if (gameId && board && playerColor === currentPlayer) {
       if (gameId === "singleplayer") {
@@ -116,6 +121,8 @@ const Game = () => {
     }
   };
 
+  //Renders text that indicates user's colour in addition to
+  //an example image of their game piece
   const renderInfo = () => {
     if (playerColor) {
       return (
@@ -127,6 +134,8 @@ const Game = () => {
     }
   };
 
+  //Renders game mode buttons
+  //Execute condition: Game board hasn't been rendered
   const renderGameModeButtons = () => {
     if (!board) {
       return (
@@ -146,6 +155,9 @@ const Game = () => {
     }
   };
 
+  //Renders selection buttons under each column of the game board
+  //Calls handleColumnClick onClick if it is the user's turn
+  //Execute condition: Game board hasn't been rendered
   const renderButtons = () => {
     return (
       <div className={styles.drop}>
@@ -158,6 +170,8 @@ const Game = () => {
     );
   };
 
+  //Renders input and join game button
+  //Execute condition: Board has not been rendered
   const renderJoinGame = () => {
     if (!board && gameMode === 'multiplayer'){
       return <><input
@@ -167,6 +181,8 @@ const Game = () => {
     };
   }
 
+  //Renders multiplayer create game button
+  //Execute condition: Board has not been rendered
   const renderCreateGame = () => {
     if(!board){
       return <button className={styles.create} onClick={createMultiplayerGame}>Create Game</button>;
@@ -174,6 +190,8 @@ const Game = () => {
     }
   }
 
+  //BROKEN, testing for singleplayer
+  //Borrowed from play.js, checks win condition
   const checkWin = (row, col) => {
     const directions = [
       { x: 1, y: 0 },
@@ -185,6 +203,9 @@ const Game = () => {
     return directions.some((direction) => checkDirection(row, col, direction));
   };
 
+  //BROKEN, testing for singleplayer
+  //Check's for a row, column, or diagonal sequence of four game pieces
+  //of the same colour
   const checkDirection = (row, col, direction) => {
     const { x, y } = direction;
     let count = 1;
