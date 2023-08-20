@@ -1,4 +1,3 @@
-// server/index.js
 
 require('dotenv').config();
 const express = require('express');
@@ -88,6 +87,3 @@ const createNewGame = async (db) => {
     });
   });
 })();
-
-//end of server/index.js
-
